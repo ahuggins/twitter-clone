@@ -906,7 +906,7 @@ module.exports = {
     visibility: ['responsive'],
     whitespace: ['responsive'],
     width: ['responsive'],
-    zIndex: ['responsive'],
+    zIndex: ['responsive']
   },
 
 
@@ -928,7 +928,7 @@ module.exports = {
     require('tailwindcss/plugins/container')({
       // center: true,
       // padding: '1rem',
-    }),
+    })
   ],
 
 
@@ -946,6 +946,6 @@ module.exports = {
     prefix: '',
     important: false,
     separator: ':',
-  },
+  }
 
 }
