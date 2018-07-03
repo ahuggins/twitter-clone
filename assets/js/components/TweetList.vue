@@ -1,6 +1,8 @@
 <template>
   <div class=" bg-white shadow">
-    <div v-for="(tweet, index) in tweets" class="flex border-b border-solid border-grey-lighter px-5">
+    <div 
+      class="flex border-b border-solid border-grey-lighter px-5"
+      v-for="(tweet, index) in tweets" v-bind:key="index">
       <div class="w-full pt-3">
           <div class="flex justify-between mb-6">
             <div>
