@@ -16,8 +16,6 @@ final class Version20180701030941 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE tweet (id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, body VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
-        $this->addSql('DROP INDEX username ON user');
-        $this->addSql('DROP INDEX email ON user');
     }
 
     public function down(Schema $schema) : void
@@ -26,7 +24,5 @@ final class Version20180701030941 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('DROP TABLE tweet');
-        $this->addSql('CREATE UNIQUE INDEX username ON user (username)');
-        $this->addSql('CREATE UNIQUE INDEX email ON user (email)');
     }
 }
