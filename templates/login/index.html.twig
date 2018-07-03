@@ -11,6 +11,15 @@
         <div class="px-32 pt-10 pb-8">
             <h1 class="text-2xl mb-6">Log in to Twitter</h1>
 
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="mb-8 bg-green-lightest border-l-4 border-green text-green-dark p-4" role="alert">
+                        <p class="font-bold">Success</p>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
             {% if errors %}
                 <div class="mb-8 bg-orange-lightest border-l-4 border-orange text-orange-dark p-4" role="alert">
                     <p class="font-bold">Whoops</p>
