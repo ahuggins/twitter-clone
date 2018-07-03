@@ -7,7 +7,9 @@ use App\Form\LoginType;
 use App\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -41,12 +43,16 @@ class LoginController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
-            
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('home');
+            try {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+            } catch (UniqueConstraintViolationException $e) {
+                $this->addFlash('error', 'Username or email already registered');
+                return $this->redirectToRoute('register');
+            }
+            $this->addFlash('success', 'Yay! You registered now login.');
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('login/register.html.twig', [
