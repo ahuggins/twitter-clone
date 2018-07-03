@@ -13,9 +13,9 @@
             <div class="w-1/3">
                 <tweeter username="{{ app.user.username }}"></tweeter>
             </div>
-            <div class="w-2/3 flex">
+            <div class="w-2/3">
                 {% for user in users %}
-                    <div class="bg-white shadow w-1/2 p-3 ml-4 text-center content-center flex relative justify-center">
+                    <div class="bg-white shadow p-3 ml-4 text-center content-center flex relative justify-center block mb-8">
                         <div class="absolute ml-4 pin-l">
                             <a href="/user/{{ user.username }}" class="text-blue no-underline">
                                 <img class="border border-blue border-2 block h-16 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" 
@@ -23,15 +23,15 @@
                             </a>
                         </div>
                         <div class="flex flex-col justify-around">
-                            <div>
+                            <div class="mb-4">
                                 <a href="/user/{{ user.username }}" class="text-blue no-underline text-2xl font-bold">
                                     {{ user.name }}
                                 </a>
                             </div>
-                            <div class="text-lg">
+                            <div class="text-lg mb-4">
                                 @{{ user.username }}
                             </div>
-                            <div>
+                            <div class="mb-4">
                                 <a href="/user/{{ user.username }}" class="text-lg font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-blue text-blue hover:bg-blue hover:text-white no-underline">{{ user.name }}</a>
                             </div>
                         </div>
