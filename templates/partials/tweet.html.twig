@@ -1,0 +1,46 @@
+<div class="flex border-b border-solid border-grey-lighter px-5">
+    <div class="w-full pt-3">
+        <div class="flex justify-between mb-6">
+            <div>
+                <span class="font-bold"><a href="/user/ahuggins" class="text-blue no-underline">{{ tweet.user.name }}</a></span>
+                <span class="text-grey-dark">@{{ tweet.user.username }}</span>
+                <span class="text-grey-dark">·</span>
+                <span class="text-grey-dark">{{ tweet.getCreatedAt().format('M d Y') }}</span>
+            </div>
+            <div>
+                <div class="block sm:inline-block cursor-pointer relative flex justify-between dropdown font-bold pl-8">
+                    <i class="fa fa-chevron-down fa-sm text-grey-dark"></i>
+                    <div class="hidden absolute w-full pin-l sm:pin-r z-30 border-t-2 bg-white border-blue-dark dropdown-content shadow">
+                        <div class="border-b border-grey-light">
+                            <a href="/profile" class="text-sm block px-4 py-2 hover:bg-grey-lightest no-underline text-blue">
+                                Delete Tweet
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <p class="">{{ tweet.body }}</p>
+        </div>
+
+        <div class="pb-2">
+            <span class="mr-8">
+                <a href="#" class="text-grey text-sm no-underline hover:text-blue-light">
+                    <i class="fa fa-comment fa-lg mr-2"></i> 9
+                </a>
+            </span>
+            <span class="mr-8">
+                <a href="#" class="text-grey text-sm no-underline hover:text-green">
+                    <i class="fa fa-retweet fa-lg mr-2"></i> 29
+                </a>
+            </span>
+            <span class="mr-8">
+                <a href="#" class="text-grey text-sm no-underline hover:text-red">
+                    <i class="fa fa-heart fa-lg mr-2"></i> 135
+                </a>
+            </span>
+        </div>
+    </div>
+</div>

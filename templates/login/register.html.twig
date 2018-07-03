@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Twitter - Login{% endblock %}
+
+{% block body_class %}bg-grey-lighter{% endblock %}
+
+{% block body %}
+{% include 'partials/header.html.twig' %}
+<div class="container mx-auto px-32">
+    <div class="container mx-auto bg-white border border-grey-light">
+        <div class="px-32 pt-10 pb-8">
+            <h1 class="text-2xl mb-6">Register on Twitter</h1>
+            {% if errors %}
+                <div class="mb-8 bg-orange-lightest border-l-4 border-orange text-orange-dark p-4" role="alert">
+                    <p class="font-bold">Whoops</p>
+                    <p>{{ errors.getMessage() }}</p>
+                </div>
+            {% endif %}
+            {{ form_start(form) }}
+                <div class="mb-8">
+                    {{ form_widget(form.name, {
+                        'attr': {
+                            'class': 'border border-grey-light p-2 rounded', 'placeholder': 'Name'
+                        } 
+                    }) }}
+                </div>
+                <div class="mb-8">
+                    {{ form_widget(form.username, { 
+                        'attr': { 
+                            'class': 'border border-grey-light p-2 rounded', 'placeholder': 'Username' 
+                        } 
+                    }) }}  
+                </div>
+                <div class="mb-8">
+                    {{ form_widget(form.email, {
+                        'attr': {
+                            'class': 'border border-grey-light p-2 rounded',
+                            'placeholder': 'Email', 'type': 'email' 
+                        } 
+                    }) }}
+                </div>
+                <div class="mb-8">
+                    {{ form_widget(form.password, {
+                        'attr': {
+                            'class': 'border border-grey-light p-2 rounded',
+                            'placeholder': 'Password'
+                        } 
+                    }) }}                
+                </div>
+                <button type="submit" class="text-sm bg-blue text-white rounded-full py-2 px-3 font-bold">Register!</button>
+            {{ form_end(form) }}
+        </div>
+        <div class="bg-grey-lightest px-32 py-6 text-sm text-grey-darker">
+            Already registered on Twitter? <a class="no-underline text-blue" href="/login">Log In now &raquo;</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

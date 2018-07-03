@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Twitter{% endblock %}
+{% block body_class %}h-screen{% endblock %}
+
+{% block body %}
+    <div class="flex justify-between h-screen">
+        <div class="flex flex-col justify-center w-1/2 mx-auto bg-blue text-white text-xl">
+            <div class="w-3/5 mx-auto">
+                <div class="mb-6">
+                    <span class="mr-4"><i class="fas fa-search" style="width: 20px"></i></span>Follow your interests.
+                </div>
+                <div class="mb-6">
+                    <span class="mr-4"><i class="fas fa-users" style="width: 20px"></i></span>Hear what people are talking about.
+                </div>
+                <div>
+                    <span class="mr-4"><i class="far fa-comment" style="width: 20px"></i></span>Join the conversation.
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center  w-1/2">
+            <div class="w-3/5 mx-auto">
+                <div class="font-black text-3xl mb-12">
+                    See what’s happening in the world right now
+                </div>
+                <div class="font-extrabold text-xl mb-8">
+                    Join Twitter today.
+                </div>
+                <div class="mb-8">
+                    <a href="/register" class="block text-center w-full bg-blue text-white rounded-full py-2 px-8 no-underline">
+                     Sign Up
+                    </a>
+                </div>
+                <div>
+                    <a href="/login" class="block text-center border-2 text-blue border-blue rounded-full py-2 px-8 no-underline">
+                     Log In
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

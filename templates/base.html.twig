@@ -4,11 +4,14 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('build/css/style.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" >
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body class="antialiased {% block body_class %}{% endblock %}">
+        <div id="app">
         {% block body %}{% endblock %}
-        {# <script src="{{ asset('build/app.js') }}"></script> #}
+        </div>
+        <script src="{{ asset('build/js/app.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
