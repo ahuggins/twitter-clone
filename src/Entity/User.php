@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Serializer;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 /**
@@ -154,11 +154,9 @@ class User implements UserInterface
     {
         $encoder = new JsonEncoder();
         $normalizer = new ObjectNormalizer();
-    
         $normalizer->setCircularReferenceHandler(function ($object) {
             return $object->getId();
         });
-    
         $serializer = new Serializer([$normalizer], [$encoder]);
         return $serializer->serialize($this, 'json');
     }
